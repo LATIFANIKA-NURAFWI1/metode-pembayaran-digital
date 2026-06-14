@@ -93,13 +93,179 @@ function Navbar({ onScrollTo }) {
         {/* CTA */}
         <button onClick={() => onScrollTo('kalkulator')}
           className="btn-kawaii bg-gradient-to-r from-violet-500 to-pink-500 text-white px-6 py-2.5 text-sm font-800 shadow-md shadow-violet-200">
-          Mulai Simulasi 
+          Mulai Simulasi
         </button>
       </div>
     </nav>
   )
 }
 
+// ──────── HERO SECTION ────────
+function HeroSection({ onScrollTo }) {
+  return (
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background */}
+      <img src="/bg.png" alt="bg" className="absolute inset-0 w-full h-full object-cover" />
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-50/20 via-pink-50/40 to-yellow-50/70" />
+
+      {/* Decorative bubbles */}
+      <div className="deco-bubble w-96 h-96 bg-violet-400 top-10 -left-32" />
+      <div className="deco-bubble w-72 h-72 bg-pink-400 bottom-20 -right-20" />
+      <div className="deco-bubble w-60 h-60 bg-yellow-300 bottom-40 left-10" />
+
+      {/* Floating mascot right */}
+      <div className="absolute right-8 top-24 hidden lg:block z-10">
+        <img
+          src="/roket.png"
+          alt="Maskot Roket"
+          className="w-56 h-56 object-contain mascot-peek"
+          style={{ filter: 'drop-shadow(0 20px 40px rgba(124,58,237,0.25))' }}
+        />
+        {/* Sparkle dots around mascot */}
+        <div className="sparkle-dot bg-yellow-300" style={{ top: '10%', right: '10%', animationDelay: '0s' }} />
+        <div className="sparkle-dot bg-pink-400" style={{ top: '30%', right: '-10%', animationDelay: '1s' }} />
+        <div className="sparkle-dot bg-violet-400" style={{ top: '60%', right: '5%', animationDelay: '2s' }} />
+      </div>
+
+      {/* Small floating mascot left */}
+      <div className="absolute left-6 bottom-32 hidden xl:block z-10">
+        <img
+          src="/koin.png"
+          alt="Maskot Koin"
+          className="w-28 h-28 object-contain float-2 opacity-80"
+          style={{ filter: 'drop-shadow(0 10px 20px rgba(251,191,36,0.4))' }}
+        />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 text-center px-4 py-32 max-w-3xl mx-auto">
+        <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border-2 border-white px-5 py-2.5 rounded-full text-sm font-800 text-violet-700 mb-8 shadow-lg shadow-violet-100/50">
+          <Sparkles className="w-4 h-4 text-yellow-500" />
+          Sistem Pendukung Keputusan · Metode TOPSIS
+        </div>
+
+        <h1 className="text-5xl md:text-7xl font-black text-slate-800 mb-6 leading-tight">
+          Pilih Pembayaran<br />
+          <span className="shimmer-text">Digital Terbaik</span><br />
+          untuk UMKM-mu!
+        </h1>
+
+        <p className="text-lg md:text-xl text-slate-600 mb-12 max-w-2xl mx-auto leading-relaxed font-600">
+          Gunakan metode <strong>TOPSIS</strong> untuk menganalisis dan menemukan metode pembayaran digital
+          paling ideal berdasarkan biaya, kemudahan, keamanan, kecepatan, dan popularitas.
+        </p>
+
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <button onClick={() => onScrollTo('kalkulator')}
+            className="btn-kawaii group bg-gradient-to-r from-violet-500 to-pink-500 text-white px-10 py-4 text-lg font-800 shadow-xl shadow-violet-200 flex items-center gap-3">
+            <Calculator className="w-6 h-6" />
+            Mulai Simulasi
+            <ArrowDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
+          </button>
+          <button onClick={() => onScrollTo('data')}
+            className="btn-kawaii bg-white/80 backdrop-blur-sm border-2 border-white text-slate-700 px-10 py-4 text-lg font-700 shadow-lg shadow-slate-200/60">
+            Lihat Data
+          </button>
+        </div>
+
+        <div className="mt-20 animate-bounce">
+          <ChevronDown className="w-8 h-8 text-slate-400 mx-auto" />
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ──────── FEATURE CARDS ────────
+function FeatureSection() {
+  const features = [
+    {
+      img: '/koin.png',
+      color: 'clay-card-blue',
+      icon: <DollarSign className="w-6 h-6 text-blue-700" />,
+      iconBg: 'bg-blue-200',
+      title: 'Hemat Biaya Transaksi',
+      desc: 'Temukan platform pembayaran dengan komisi paling rendah untuk memaksimalkan keuntungan bisnis UMKM kamu setiap harinya.',
+      tag: 'Cost Efficient',
+      floatClass: 'float-1',
+    },
+    {
+      img: '/shield.png',
+      color: 'clay-card-pink',
+      icon: <Shield className="w-6 h-6 text-pink-700" />,
+      iconBg: 'bg-pink-200',
+      title: 'Keamanan Terjamin',
+      desc: 'Analisis tingkat keamanan tiap platform berdasarkan enkripsi data, proteksi fraud, dan rekam jejak kepercayaan pengguna.',
+      tag: 'Secure & Safe',
+      floatClass: 'float-2',
+    },
+    {
+      img: '/roket.png',
+      color: 'clay-card-yellow',
+      icon: <Zap className="w-6 h-6 text-yellow-700" />,
+      iconBg: 'bg-yellow-200',
+      title: 'Transaksi Super Cepat',
+      desc: 'Bandingkan kecepatan proses transaksi real-time agar pelanggan tidak perlu menunggu lama saat checkout di tokomu.',
+      tag: 'Lightning Fast',
+      floatClass: 'float-3',
+    },
+  ]
+
+  return (
+    <section id="fitur" className="py-24 px-4 relative overflow-hidden">
+      {/* Soft background blend */}
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-50/40 via-pink-50/30 to-yellow-50/30 pointer-events-none" />
+
+      <div className="relative max-w-6xl mx-auto">
+        {/* Heading */}
+        <div className="text-center mb-20">
+          <div className="section-pill bg-violet-100 text-violet-700 shadow-violet-100">
+            <Star className="w-4 h-4" /> Mengapa SPK Ini?
+          </div>
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
+            <span className="gradient-title">3 Keunggulan Utama</span>
+          </h2>
+          <p className="text-slate-500 text-lg max-w-xl mx-auto font-500">
+            SPK ini dirancang khusus untuk membantu pelaku UMKM membuat keputusan cerdas berbasis data.
+          </p>
+        </div>
+
+        {/* Cards — maskot nongol dari atas */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
+          {features.map((feat, i) => (
+            <div key={i} className="relative mt-20 group">
+              {/* Maskot absolute — keluar dari atas batas card */}
+              <div className={`absolute -top-16 left-1/2 -translate-x-1/2 z-20 w-32 h-32 ${feat.floatClass}`}>
+                <img
+                  src={feat.img}
+                  alt={feat.title}
+                  className="w-full h-full object-contain"
+                  style={{ filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.18))' }}
+                />
+              </div>
+
+              {/* Card body */}
+              <div className={`clay-card ${feat.color} pt-20 pb-8 px-7 flex flex-col items-center text-center
+                group-hover:scale-105 transition-all duration-300`}
+                style={{ animationDelay: `${i * 0.15}s` }}>
+
+                <div className={`inline-flex items-center justify-center w-12 h-12 ${feat.iconBg} rounded-2xl mb-4 shadow-md`}>
+                  {feat.icon}
+                </div>
+
+                <span className="text-xs font-800 text-slate-600 bg-white/70 px-4 py-1.5 rounded-full mb-4 backdrop-blur-sm shadow-sm">
+                  {feat.tag}
+                </span>
+                <h3 className="text-xl font-900 text-slate-800 mb-3">{feat.title}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed font-500">{feat.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
 
 // ──────── DATA TABLE SECTION ────────
 function DataSection({ alternatives, criteria }) {
@@ -113,7 +279,7 @@ function DataSection({ alternatives, criteria }) {
             <Table2 className="w-4 h-4" /> Data Default
           </div>
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
-            <span className="gradient-title">Matriks Penilaian Awal</span> 
+            <span className="gradient-title">Matriks Penilaian Awal</span>
           </h2>
           <p className="text-slate-500 text-lg max-w-xl mx-auto font-500">
             Data matriks keputusan dan bobot kriteria yang digunakan sebagai nilai default dalam perhitungan TOPSIS.
@@ -382,7 +548,7 @@ function TopsisStepsSection({ result, criteria, alternatives }) {
             <TrendingUp className="w-4 h-4" /> Langkah TOPSIS
           </div>
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
-            <span className="gradient-title">Proses Perhitungan Live</span> 
+            <span className="gradient-title">Proses Perhitungan Live</span>
           </h2>
           <p className="text-slate-500 text-lg max-w-xl mx-auto font-500">
             Setiap tabel di bawah menampilkan hasil perhitungan langkah demi langkah yang berubah real-time.
