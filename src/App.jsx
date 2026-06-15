@@ -10,7 +10,7 @@ import './index.css'
 const DEFAULT_CRITERIA = [
   { id: 'C1', name: 'Biaya Transaksi',    type: 'Cost',    weight: 40 },
   { id: 'C2', name: 'Kemudahan',          type: 'Benefit', weight: 27 },
-  { id: 'C3', name: 'Keamanan',           type: 'Benefit', weight: 24 },
+  { id: 'C3', name: 'Keamanan',           type: 'Benefit', weight: 23 },
   { id: 'C4', name: 'Kecepatan',          type: 'Benefit', weight:  6 },
   { id: 'C5', name: 'Popularitas',        type: 'Benefit', weight:  4 },
 ]
