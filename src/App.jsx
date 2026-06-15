@@ -113,29 +113,7 @@ function HeroSection({ onScrollTo }) {
       <div className="deco-bubble w-72 h-72 bg-pink-400 bottom-20 -right-20" />
       <div className="deco-bubble w-60 h-60 bg-yellow-300 bottom-40 left-10" />
 
-      {/* Floating mascot right */}
-      <div className="absolute right-8 top-24 hidden lg:block z-10">
-        <img
-          src="/roket.png"
-          alt="Maskot Roket"
-          className="w-56 h-56 object-contain mascot-peek"
-          style={{ filter: 'drop-shadow(0 20px 40px rgba(124,58,237,0.25))' }}
-        />
-        {/* Sparkle dots around mascot */}
-        <div className="sparkle-dot bg-yellow-300" style={{ top: '10%', right: '10%', animationDelay: '0s' }} />
-        <div className="sparkle-dot bg-pink-400" style={{ top: '30%', right: '-10%', animationDelay: '1s' }} />
-        <div className="sparkle-dot bg-violet-400" style={{ top: '60%', right: '5%', animationDelay: '2s' }} />
-      </div>
 
-      {/* Small floating mascot left */}
-      <div className="absolute left-6 bottom-32 hidden xl:block z-10">
-        <img
-          src="/koin.png"
-          alt="Maskot Koin"
-          className="w-28 h-28 object-contain float-2 opacity-80"
-          style={{ filter: 'drop-shadow(0 10px 20px rgba(251,191,36,0.4))' }}
-        />
-      </div>
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 py-32 max-w-3xl mx-auto">
@@ -199,8 +177,6 @@ function DataSection({ alternatives, criteria }) {
           {/* Criteria & Weights */}
           <div className="glass-card p-7">
             <h3 className="font-900 text-slate-800 text-base mb-5 flex items-center gap-2">
-              {/* Maskot kecil ngintip di sebelah judul */}
-              <img src="/koin.png" alt="maskot" className="w-8 h-8 object-contain float-1" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-violet-500">
                 Kriteria &amp; Bobot
               </span>
@@ -230,7 +206,6 @@ function DataSection({ alternatives, criteria }) {
           {/* Decision Matrix */}
           <div className="lg:col-span-2 glass-card p-7">
             <h3 className="font-900 text-slate-800 text-base mb-5 flex items-center gap-2">
-              <img src="/roket.png" alt="maskot" className="w-8 h-8 object-contain float-3" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500">
                 Matriks Keputusan (X)
               </span>
@@ -297,7 +272,6 @@ function CalculatorSection({ alternatives, setAlternatives, criteria, setCriteri
             <Calculator className="w-4 h-4" /> Kalkulator Simulasi
           </div>
           <h2 className="text-4xl md:text-5xl font-extrabold mb-2 flex items-center justify-center gap-3 flex-wrap">
-            <img src="/koin.png" alt="maskot kecil" className="w-12 h-12 object-contain mascot-peek hidden sm:inline-block" />
             <span className="gradient-title">Atur Nilai &amp; Bobot</span>
             <span className="text-slate-800"></span>
           </h2>
@@ -310,7 +284,6 @@ function CalculatorSection({ alternatives, setAlternatives, criteria, setCriteri
           {/* Weight inputs */}
           <div className="glass-card p-7">
             <h3 className="font-900 text-slate-800 text-base mb-5 flex items-center gap-2">
-              <img src="/shield.png" alt="maskot" className="w-8 h-8 object-contain float-2" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500 text-sm">
                 Bobot Kriteria (%)
               </span>
@@ -348,7 +321,6 @@ function CalculatorSection({ alternatives, setAlternatives, criteria, setCriteri
           {/* Matrix inputs */}
           <div className="lg:col-span-3 glass-card p-7">
             <h3 className="font-900 text-slate-800 text-base mb-5 flex items-center gap-2">
-              <img src="/roket.png" alt="maskot" className="w-8 h-8 object-contain float-1" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-pink-500 text-sm">
                 Nilai Matriks Keputusan (X)
               </span>
@@ -561,22 +533,34 @@ function TopsisStepsSection({ result, criteria, alternatives }) {
 
 // ──────── RESULTS SECTION ────────
 function ResultsSection({ ranked }) {
-  const rankColors = [
-    'from-yellow-200 via-amber-100 to-yellow-300 border-yellow-400',
-    'from-slate-100 via-slate-50 to-slate-200 border-slate-300',
-    'from-orange-100 via-orange-50 to-orange-200 border-orange-300',
-    'from-blue-50 via-sky-50 to-blue-100 border-blue-200',
-  ]
-  const medalBg = ['bg-gradient-to-br from-yellow-400 to-amber-500', 'bg-gradient-to-br from-slate-300 to-slate-400', 'bg-gradient-to-br from-orange-300 to-orange-500', 'bg-gradient-to-br from-blue-300 to-blue-400']
-
   const maxVi = ranked[0]?.Vi || 1
+
+  const getBadgeClass = (index) => {
+    switch (index) {
+      case 0: return 'bg-yellow-400 text-white'
+      case 1: return 'bg-slate-300 text-slate-700'
+      case 2: return 'bg-orange-300 text-white'
+      case 3: return 'bg-blue-200 text-blue-700'
+      default: return 'bg-slate-200 text-slate-700'
+    }
+  }
+
+  const getProgressClass = (index) => {
+    switch (index) {
+      case 0: return 'bg-yellow-400'
+      case 1: return 'bg-slate-300'
+      case 2: return 'bg-orange-300'
+      case 3: return 'bg-blue-200'
+      default: return 'bg-slate-300'
+    }
+  }
 
   return (
     <section id="hasil" className="py-24 px-4 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-pink-50/40 to-violet-50/40 pointer-events-none" />
       <div className="relative max-w-4xl mx-auto">
 
-        {/* Heading with mascot peek */}
+        {/* Heading */}
         <div className="text-center mb-16">
           <div className="section-pill bg-amber-100 text-amber-700 shadow-amber-100">
             <Trophy className="w-4 h-4" /> Hasil Akhir
@@ -584,7 +568,6 @@ function ResultsSection({ ranked }) {
           <h2 className="text-4xl md:text-5xl font-extrabold mb-2 flex items-center justify-center gap-3 flex-wrap">
             <span className="gradient-title">Peringkat Rekomendasi</span>
             <span className="text-slate-800"> </span>
-            <img src="/roket.png" alt="maskot roket" className="w-12 h-12 object-contain mascot-peek hidden sm:inline-block" />
           </h2>
           <p className="text-slate-500 text-lg max-w-xl mx-auto font-500 mt-3">
             Alternatif dengan <strong>Nilai Preferensi (Vᵢ)</strong> tertinggi adalah rekomendasi terbaik.
@@ -593,12 +576,7 @@ function ResultsSection({ ranked }) {
 
         {/* Winner highlight */}
         {ranked[0] && (
-          <div className="clay-card bg-gradient-to-br from-yellow-200 via-amber-100 to-yellow-300 border-2 border-yellow-400 p-10 mb-10 text-center relative overflow-hidden">
-            <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-yellow-400 via-amber-300 to-yellow-400" />
-            {/* Confetti blobs */}
-            <div className="deco-bubble w-40 h-40 bg-yellow-400 top-0 right-0 opacity-30" style={{ borderRadius: '60% 40% 50% 60%' }} />
-            <div className="deco-bubble w-32 h-32 bg-amber-300 bottom-0 left-10 opacity-25" style={{ borderRadius: '50% 60% 40% 50%' }} />
-
+          <div className="bg-white/80 backdrop-blur-md border-2 border-yellow-400 shadow-[0_0_30px_rgba(250,204,21,0.3)] rounded-3xl p-10 mb-10 text-center relative overflow-hidden">
             <div className="text-6xl mb-3 relative z-10">🏆</div>
             <div className="badge-winner mb-4 inline-block relative z-10">⭐ Rekomendasi Terbaik</div>
             <h3 className="text-4xl font-black text-slate-800 mb-2 relative z-10">{ranked[0].name}</h3>
@@ -616,7 +594,6 @@ function ResultsSection({ ranked }) {
         {/* Full Leaderboard */}
         <div className="glass-card p-7 mb-6">
           <h3 className="font-900 text-slate-800 text-lg mb-6 flex items-center gap-2">
-            <img src="/shield.png" alt="maskot" className="w-9 h-9 object-contain float-2" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-pink-500">
               Tabel Peringkat Lengkap (Nilai Preferensi Vᵢ)
             </span>
@@ -624,11 +601,11 @@ function ResultsSection({ ranked }) {
           <div className="space-y-4">
             {ranked.map((a, i) => (
               <div key={a.id}
-                className={`slide-in rounded-[1.5rem] border-2 bg-gradient-to-r ${rankColors[i] || 'from-slate-100 to-slate-200 border-slate-300'} p-5 hover:scale-[1.02] transition-all cursor-default`}
+                className="slide-in bg-white/60 backdrop-blur-sm border border-slate-100 rounded-2xl hover:bg-white/80 transition-all p-5 cursor-default"
                 style={{ animationDelay: `${i * 0.1}s` }}>
                 <div className="flex items-center gap-5">
                   {/* Rank Badge */}
-                  <div className={`w-14 h-14 flex-shrink-0 flex items-center justify-center ${medalBg[i] || 'bg-slate-300'} rounded-2xl shadow-md text-2xl text-white font-black`}>
+                  <div className={`w-14 h-14 flex-shrink-0 flex items-center justify-center ${getBadgeClass(i)} rounded-2xl shadow-sm text-2xl font-black`}>
                     {a.rank}
                   </div>
 
@@ -640,9 +617,9 @@ function ResultsSection({ ranked }) {
                     </div>
 
                     {/* Progress bar */}
-                    <div className="w-full bg-white/60 rounded-full h-3 overflow-hidden backdrop-blur-sm">
+                    <div className="w-full bg-slate-100/80 rounded-full h-3 overflow-hidden backdrop-blur-sm shadow-inner">
                       <div
-                        className="h-3 rounded-full bg-gradient-to-r from-violet-500 to-pink-500 transition-all duration-700 ease-out"
+                        className={`h-3 rounded-full transition-all duration-700 ease-out ${getProgressClass(i)}`}
                         style={{ width: `${(a.Vi / maxVi) * 100}%` }}
                       />
                     </div>
@@ -662,7 +639,6 @@ function ResultsSection({ ranked }) {
         {/* Summary Table */}
         <div className="glass-card p-7">
           <h3 className="font-900 text-slate-800 text-base mb-5 flex items-center gap-2">
-            <img src="/koin.png" alt="maskot" className="w-8 h-8 object-contain float-1" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-500 to-slate-700">
               Ringkasan Nilai Preferensi (Vᵢ)
             </span>
@@ -729,11 +705,7 @@ function Footer() {
             </span>
           </div>
 
-          <div className="flex justify-center gap-4 mb-6">
-            <img src="/koin.png" alt="koin" className="w-10 h-10 object-contain float-1 opacity-70" />
-            <img src="/shield.png" alt="shield" className="w-10 h-10 object-contain float-2 opacity-70" />
-            <img src="/roket.png" alt="roket" className="w-10 h-10 object-contain float-3 opacity-70" />
-          </div>
+
 
           <p className="text-sm mb-2 font-500">
             Sistem Pendukung Keputusan Pemilihan Metode Pembayaran Digital UMKM
