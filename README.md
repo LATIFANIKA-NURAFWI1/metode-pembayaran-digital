@@ -1,4 +1,4 @@
-# 🏆 SPK Pembayaran Digital UMKM
+# SPK Pembayaran Digital UMKM
 
 <div align="center">
 
@@ -11,13 +11,13 @@ menggunakan Metode **TOPSIS** *(Technique for Order of Preference by Similarity 
 [![Lucide React](https://img.shields.io/badge/Lucide_React-Icons-F56565)](https://lucide.dev)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
-[🚀 Live Demo](https://spk-react.vercel.app) · [📖 Dokumentasi](#cara-penggunaan) · [🐛 Laporkan Bug](../../issues)
+[Live Demo](https://spk-react.vercel.app) · [Dokumentasi](#cara-penggunaan) · [Laporkan Bug](../../issues)
 
 </div>
 
 ---
 
-## 📖 Tentang Project
+## Tentang Project
 
 Project ini merupakan **Sistem Pendukung Keputusan (SPK)** berbasis web untuk membantu pelaku **UMKM** memilih metode pembayaran digital yang paling sesuai dengan kebutuhan bisnis mereka.
 
@@ -40,18 +40,18 @@ Project ini merupakan **Sistem Pendukung Keputusan (SPK)** berbasis web untuk me
 
 ---
 
-## ✨ Fitur Utama
+## Fitur Utama
 
-- 📊 **Kalkulator TOPSIS Interaktif** — ubah nilai matriks & bobot, hasil berubah real-time
-- 📋 **Tampilan Langkah-Langkah** — visualisasi setiap tahap perhitungan TOPSIS (R, Y, A⁺, A⁻, D⁺, D⁻, Vᵢ)
-- 🏅 **Peringkat Rekomendasi** — leaderboard dengan highlight pemenang
-- 💎 **UI Glassmorphism** — desain modern dengan claymorphism card & animasi halus
-- 📱 **Responsive** — tampil optimal di desktop & mobile
-- ⚡ **Client-Side Only** — tidak butuh backend, semua kalkulasi di browser
+- **Kalkulator TOPSIS Interaktif** — ubah nilai matriks & bobot, hasil berubah real-time
+- **Tampilan Langkah-Langkah** — visualisasi setiap tahap perhitungan TOPSIS (R, Y, A⁺, A⁻, D⁺, D⁻, Vᵢ)
+- **Peringkat Rekomendasi** — leaderboard dengan highlight pemenang
+- **UI Glassmorphism** — desain modern dengan claymorphism card & animasi halus
+- **Responsive** — tampil optimal di desktop & mobile
+- **Client-Side Only** — tidak butuh backend, semua kalkulasi di browser
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Teknologi | Versi | Keterangan |
 |-----------|-------|------------|
@@ -63,7 +63,7 @@ Project ini merupakan **Sistem Pendukung Keputusan (SPK)** berbasis web untuk me
 
 ---
 
-## 🚀 Cara Menjalankan
+## Cara Menjalankan
 
 ### Prerequisites
 - [Node.js](https://nodejs.org) versi 18 ke atas
@@ -94,7 +94,7 @@ npm run preview
 
 ---
 
-## 📁 Struktur Folder
+## Struktur Folder
 
 ```
 spk-react/
@@ -126,7 +126,7 @@ spk-react/
 
 ---
 
-## 🧮 Algoritma TOPSIS
+## Algoritma TOPSIS
 
 Metode TOPSIS bekerja dalam 6 langkah:
 
@@ -139,12 +139,12 @@ Metode TOPSIS bekerja dalam 6 langkah:
 
 ---
 
-## 👤 Author
+## Identitas Kelompok
 
-**Latifa Nika Nurafwi**
+Project ini dikembangkan oleh kelompok yang terdiri dari 3 orang:
 
----
-
-## 📄 Lisensi
-
-Distributed under the MIT License. See `LICENSE` for more information.
+| No | Nama Lengkap | NIM |
+|:--:|--------------|-------|
+| 1 | Adjeng Mutiara Dewi | H1D024055 |
+| 2 | Rahmadani Hafsari | H1D024057 |
+| 3 | Latifanika Nurafwi| H1D024099 |
